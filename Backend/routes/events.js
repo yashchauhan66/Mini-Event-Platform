@@ -15,12 +15,15 @@ const storage = multer.diskStorage({
       fs.mkdirSync(uploadPath);
     }
     cb(null, uploadPath);
+
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     cb(null, uniqueSuffix + path.extname(file.originalname));
   }
 });
+
+
 
 const upload = multer({ storage });
 
@@ -42,6 +45,8 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     if (!title || !description || !datetime || !location) {
       return res.status(400).json({ message: "All fields required" });
     }
+
+    
 
     const event = new Event({
       title,
