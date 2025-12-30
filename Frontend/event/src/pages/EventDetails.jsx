@@ -17,7 +17,8 @@ export default function EventDetails() {
 
   return (
     <div style={{ padding: 20 }}>
-      <img src={event.images?.[0]?.url} style={{ width: "100%", borderRadius: 12 }} />
+     
+      <img src={event.images?.[0]?.url} alt={event.name} style={{ width: "100%", borderRadius: 12 }} />
       <h1>{event.name}</h1>
       <p>{event.dates.start.localDate}</p>
       <p>{event._embedded?.venues?.[0]?.name}</p>

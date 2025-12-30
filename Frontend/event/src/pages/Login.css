@@ -1,34 +1,75 @@
-.auth-container {
-  max-width: 420px;
-  margin: 90px auto;
-  background: var(--card);
-  padding: 32px;
-  border-radius: var(--radius);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 20px;
 }
 
-.auth-container h2 {
+.login-card {
+  background: #ffffff;
+  padding: 30px 28px;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+.login-card h2 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
+  color: #333;
+  font-weight: 600;
 }
 
-.auth-container input {
+.login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.login-card button {
   width: 100%;
   padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  margin-bottom: 14px;
-}
-
-.auth-container input:focus {
-  border-color: var(--primary);
-}
-
-.auth-container button {
-  width: 100%;
-  padding: 12px;
-  background: var(--primary);
+  background: #667eea;
   color: white;
-  border-radius: 10px;
+  border: none;
+  border-radius: 8px;
   font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-card button:hover {
+  background: #5a67d8;
+  transform: translateY(-1px);
+}
+
+.login-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

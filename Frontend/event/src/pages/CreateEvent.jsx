@@ -12,11 +12,17 @@ export default function CreateEvent() {
     capacity: 0,
   });
 
+
+
   const submit = async (e) => {
-    e.preventDefault(); // prevent page reload
+    e.preventDefault(); 
     if (!form.title || !form.description || !form.datetime || !form.location || !form.capacity) {
       return alert("Please fill all fields");
     }
+
+
+
+
 
     const formData = new FormData();
     formData.append("title", form.title);
@@ -27,7 +33,7 @@ export default function CreateEvent() {
     if (image) formData.append("image", image);
 
     try {
-      await API.post("/events", formData); // Axios sets Content-Type automatically
+      await API.post("/events", formData); 
       alert("Event created successfully!");
       window.location.href = "/";
     } catch (err) {
@@ -36,7 +42,7 @@ export default function CreateEvent() {
     }
   };
 
-  return (
+  return(
     <div className="create-event-container">
       <h2>Create Event</h2>
       <form onSubmit={submit}>

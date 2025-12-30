@@ -9,22 +9,22 @@ export default function MyEvents() {
 
   useEffect(() => {
     API.get("/events")
-      .then(res => setEvents(res.data))
-      .catch(err => console.log(err));
+      .then((res) => setEvents(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
-    <div className="events-container">
+    <div className="events-page">
       <h2 className="events-title">My Events</h2>
 
       {events.length === 0 ? (
-        <p className="no-events">No events found.</p>
+        <p className="no-events">No events found</p>
       ) : (
         <div className="events-grid">
-          {events.map(event => (
+          {events.map((event) => (
             <div key={event._id} className="event-card">
               {event.image && (
-                <div className="event-image-container">
+                <div className="event-image-wrapper">
                   <img
                     src={`https://mini-event-platform-nbts.onrender.com/uploads/${event.image}`}
                     alt={event.title}
@@ -33,20 +33,32 @@ export default function MyEvents() {
                 </div>
               )}
 
-              <div className="event-info">
-                <h3>{event.title}</h3>
-                <p>{event.description}</p>
-                <p>
-                  <strong>Date:</strong>{" "}
-                  {new Date(event.datetime).toLocaleString()}
-                </p>
-                <p><strong>Location:</strong> {event.location}</p>
-                <p><strong>Capacity:</strong> {event.capacity}</p>
-              </div>
+              <div className="event-content">
+                <h3 className="event-title">{event.title}</h3>
+                <p className="event-desc">{event.description}</p>
 
-              <div className="event-actions">
-                <button onClick={() => navigate("/")}>Join</button>
-                <button onClick={() => navigate("/create")}>Leave</button>
+                <div className="event-meta">
+                  <span>
+  {event.datetime
+    ? new Date(event.datetime).toLocaleString()
+    : "Date not available"}
+</span>
+
+                  <span> {event.location}</span>
+                  <span> {event.capacity}</span>
+                </div>
+
+                <div className="event-actions">
+                  <button className="btn primary" onClick={() => navigate("/")}>
+                    Join
+                  </button>
+                  <button
+                    className="btn secondary"
+                    onClick={() => navigate("/create")}
+                  >
+                    Leave
+                  </button>
+                </div>
               </div>
             </div>
           ))}
