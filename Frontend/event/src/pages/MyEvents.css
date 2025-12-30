@@ -1,98 +1,95 @@
 .events-container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .events-title {
   text-align: center;
-  color: #333;
-  margin-bottom: 30px;
   font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4f46e5;
 }
 
 .no-events {
   text-align: center;
-  color: #888;
   font-size: 1.2rem;
+  color: #555;
 }
 
+/* Grid layout */
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
+/* Card styling */
 .event-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-.event-title {
-  font-size: 1.5rem;
-  color: #222;
-  margin-bottom: 10px;
+/* Image container */
+.event-image-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
 }
 
-.event-description {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 10px;
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.event-datetime,
-.event-place {
+/* Event info */
+.event-info {
+  padding: 16px;
+  flex: 1;
+}
+
+.event-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  color: #1f2937;
+}
+
+.event-info p {
+  margin: 4px 0;
+  color: #4b5563;
   font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 5px;
 }
+
+/* Buttons */
 .event-actions {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  padding: 16px;
 }
 
 .event-actions button {
   flex: 1;
-  padding: 14px 24px;
+  padding: 10px;
   border: none;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
+  border-radius: 8px;
+  background-color: #4f46e5;
+  color: #fff;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  transition: background 0.3s;
 }
 
-.btn-join {
-  background: #52c41a;
-  color: white;
-}
-
-.btn-join:hover {
-  background: #73d13d;
-  transform: scale(1.05);
-}
-
-.btn-leave {
-  background: #f5f5f5;
-  color: #666;
-}
-
-.btn-leave:hover {
-  background: #ff4d4f;
-  color: white;
-  transform: scale(1.05);
+.event-actions button:hover {
+  background-color: #4338ca;
 }

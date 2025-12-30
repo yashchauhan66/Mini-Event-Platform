@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 router.post('/', auth, upload.single('image'), async (req, res) => {
   try {
     console.log(req.body); 
-    const { title, description, datetime, location, capacity } = req.body;
+    const { title, description, datetime, location, capacity,image } = req.body;
 
     if (!title || !description || !datetime || !location) {
       return res.status(400).json({ message: "All fields required" });

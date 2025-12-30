@@ -8,7 +8,7 @@ const [password, setPassword] = useState('');
 
 
 const submit = async () => {
-await API.post('/auth/signup', { email, password });
+await API.post('/signup', { email, password });
 window.location.href = '/login';
 };
 
