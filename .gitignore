@@ -1,0 +1,13 @@
+# Backend
+Backend/node_modules/
+Backend/uploads/
+Backend/.env
+
+# Frontend
+Frontend/event/node_modules/
+Frontend/event/build/
+Frontend/event/.env
+
+
+# Common
+*.log

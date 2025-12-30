@@ -1,0 +1,98 @@
+.events-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.events-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.no-events {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.event-title {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.event-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.event-datetime,
+.event-place {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+.event-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.event-actions button {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-join {
+  background: #52c41a;
+  color: white;
+}
+
+.btn-join:hover {
+  background: #73d13d;
+  transform: scale(1.05);
+}
+
+.btn-leave {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.btn-leave:hover {
+  background: #ff4d4f;
+  color: white;
+  transform: scale(1.05);
+}
