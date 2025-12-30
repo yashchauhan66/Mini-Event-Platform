@@ -42,7 +42,8 @@ export default function MyEvents() {
                 <strong>Capacity:</strong> {event.capacity}
               </p>
               <img 
-             src={`http://localhost:5000/uploads/${event.image}`} 
+               src={`https://mini-event-platform-nbts.onrender.com/${event.image}`} 
+
                alt={event.title} 
       style={{ width: '200px', borderRadius: '8px' }} 
              />
