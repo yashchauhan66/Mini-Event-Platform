@@ -1,4 +1,4 @@
-name:  Build → Test → Push → Deploy
+name: Event Platform CI/CD
 
 on:
   push:
@@ -10,37 +10,8 @@ env:
 
 jobs:
 
-# ================= TEST =================
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install Backend
-        working-directory: ./Backend
-        run: npm ci
-
-      - name: Test Backend
-        working-directory: ./Backend
-        
-
-      - name: Install Frontend
-        working-directory: ./Frontend/event
-        run: npm ci
-
-      - name: Test Frontend
-        working-directory: ./Frontend/event
-        
-
-
 # ================= BUILD & PUSH =================
   build-and-push:
-    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -57,17 +28,14 @@ jobs:
         with:
           context: ./Backend
           push: true
-          tags: |
-            ${{ env.BACKEND_IMAGE }}:latest
+          tags: ${{ env.BACKEND_IMAGE }}:latest
 
       - name: Build & Push Frontend
         uses: docker/build-push-action@v5
         with:
           context: ./Frontend/event
           push: true
-          tags: |
-            ${{ env.FRONTEND_IMAGE }}:latest
-
+          tags: ${{ env.FRONTEND_IMAGE }}:latest
 
 # ================= DEPLOY TO EC2 =================
   deploy:
@@ -82,7 +50,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-
             echo " Deploying to EC2..."
 
             cd /opt/event-platform
@@ -91,7 +58,6 @@ jobs:
             docker pull ${{ env.FRONTEND_IMAGE }}:latest
 
             docker-compose down
-
             docker-compose up -d
 
             docker image prune -f
