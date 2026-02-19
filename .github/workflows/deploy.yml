@@ -1,4 +1,4 @@
-name: 🚀 Build → Test → Push → Deploy
+name:  Build → Test → Push → Deploy
 
 on:
   push:
@@ -83,7 +83,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
 
-            echo "🚀 Deploying to EC2..."
+            echo " Deploying to EC2..."
 
             cd /opt/event-platform
 
@@ -96,4 +96,4 @@ jobs:
 
             docker image prune -f
 
-            echo "✅ Deployment Complete!"
+            echo " Deployment Complete!"
