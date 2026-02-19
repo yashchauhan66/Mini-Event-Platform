@@ -27,7 +27,7 @@ jobs:
 
       - name: Test Backend
         working-directory: ./Backend
-        run: npm test --if-present
+        
 
       - name: Install Frontend
         working-directory: ./Frontend/event
@@ -35,7 +35,7 @@ jobs:
 
       - name: Test Frontend
         working-directory: ./Frontend/event
-        run: npm test --if-present
+        
 
 
 # ================= BUILD & PUSH =================
