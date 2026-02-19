@@ -6,6 +6,7 @@ import MyEvents from "./pages/MyEvents";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import EventDetails from "./pages/EventDetails";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <BrowserRouter>
@@ -13,12 +14,19 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Events />} />
-        <Route path="/create" element={<CreateEvent />} />
-        <Route path="/myevents" element={<MyEvents />} />
+        <Route path="/create" element={
+          <ProtectedRoute>
+            <CreateEvent />
+          </ProtectedRoute>
+        } />
+        <Route path="/myevents" element={
+          <ProtectedRoute>
+            <MyEvents />
+          </ProtectedRoute>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/event/:id" element={<EventDetails />} />
-        
       </Routes>
     </BrowserRouter>
   );

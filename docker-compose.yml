@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  backend:
+    image: yashchauhan642003/event-backend:latest
+    container_name: event-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: ${MONGO_URI}
+      JWT_SECRET: ${JWT_SECRET}
+      NODE_ENV: production
+      PORT: 5000
+    networks:
+      - event-network
+
+  frontend:
+    image: yashchauhan642003/event-frontend:latest
+    container_name: event-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - event-network
+
+networks:
+  event-network:
+    driver: bridge

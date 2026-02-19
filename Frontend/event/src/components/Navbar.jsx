@@ -11,8 +11,8 @@ export default function Navbar() {
       {isAuth && <Link to="/create">Create Event</Link>}
       {isAuth && <Link to="/myevents">My Events</Link>}
 
-      {!isAuth && <Link to="/login">Login</Link>}
-      {!isAuth && <Link to="/signup">Signup</Link>}
+      {isAuth && <Link to="/login">Login</Link>}
+      {isAuth && <Link to="/signup">Signup</Link>}
     </nav>
   );
 }
