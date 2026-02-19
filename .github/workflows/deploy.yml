@@ -54,8 +54,9 @@ jobs:
 
             cd /opt/event-platform
 
-            docker pull ${{ env.BACKEND_IMAGE }}:latest
-            docker pull ${{ env.FRONTEND_IMAGE }}:latest
+            docker pull yashchauhan642003/event-backend:latest
+            docker pull yashchauhan642003/event-frontend:latest
+   
 
             docker-compose down
             docker-compose up -d
